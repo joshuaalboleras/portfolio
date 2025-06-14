@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joshua Luis - React.js Developer Portfolio</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome CDN for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" xintegrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Custom styles to match the original component and add enhancements */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Animation keyframes */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        /* Background dot effect with animation */
+        .bg-effect {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image:
+                radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+                radial-gradient(circle at 40% 60%, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+                radial-gradient(circle at 70% 30%, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+            background-size: 150px 150px;
+            opacity: 0.5;
+            pointer-events: none;
+            z-index: 0;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        /* Enhanced navigation styles */
+        nav a {
+            position: relative;
+            transition: all 0.3s ease;
+            padding-bottom: 4px;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #DC2626;
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after,
+        .active-nav::after {
+            width: 100%;
+        }
+
+        nav a:hover,
+        .active-nav {
+            color: #DC2626;
+            transform: translateY(-2px);
+        }
+
+        /* Animation classes */
+        .animate-fadeInUp {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        .animate-fadeIn {
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+
+        .animate-float {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .animate-pulse {
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        /* Scroll Animation Classes */
+        .scroll-hidden {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .scroll-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .scroll-hidden-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .scroll-hidden-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .scroll-hidden-scale {
+            opacity: 0;
+            transform: scale(0.9);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .scroll-hidden-rotate {
+            opacity: 0;
+            transform: rotate(-5deg) scale(0.95);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .scroll-visible-left,
+        .scroll-visible-right,
+        .scroll-visible-scale,
+        .scroll-visible-rotate {
+            opacity: 1;
+            transform: translateX(0) scale(1) rotate(0);
+        }
+
+        /* Staggered animation delays for scroll animations */
+        .scroll-delay-100 { transition-delay: 100ms; }
+        .scroll-delay-200 { transition-delay: 200ms; }
+        .scroll-delay-300 { transition-delay: 300ms; }
+        .scroll-delay-400 { transition-delay: 400ms; }
+        .scroll-delay-500 { transition-delay: 500ms; }
+
+        /* Ensure all content is above the background effect */
+        .content-wrapper {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Enhanced hover effects */
+        .hover-lift {
+            transition: transform 0.3s ease;
+        }
+
+        .hover-lift:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Staggered animation delays */
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+        .delay-400 { animation-delay: 0.4s; }
+        .delay-500 { animation-delay: 0.5s; }
+    </style>
+</head>
+<body class="bg-black text-white relative">
+    <!-- Background effect div -->
+    <div class="bg-effect"></div>
+    
+    <!-- Main content wrapper -->
+    <div class="content-wrapper container mx-auto p-4 md:p-8">
+
+        <!-- Navigation -->
+        <nav class="flex justify-between items-center py-4">
+            <div class="text-white text-3xl">
+                <!-- Using a more generic portfolio icon -->
+                <i class="fa-solid fa-code"></i>
+            </div>
+            <div class="hidden md:flex gap-8 text-white text-lg">
+                <a href="#home" class="active-nav">Home</a>
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="text-white text-2xl">
+                <!-- Placeholder for dark mode toggle -->
+                <i class="fas fa-moon"></i>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <section id="home" class="flex flex-col md:flex-row items-center justify-between py-20 md:py-32 max-w-7xl mx-auto px-4">
+            <div class="text-center md:text-left md:max-w-2xl">
+                <h1 class="text-5xl md:text-6xl font-bold mb-4 animate-fadeInUp">Hi,</h1>
+                <h2 class="text-5xl md:text-6xl font-bold mb-4 animate-fadeInUp delay-100">
+                    I'm <span class="text-red-600">Joshua Luis</span>
+                </h2>
+                <h2 class="text-5xl md:text-6xl font-bold mb-8 animate-fadeInUp delay-200">Web Developer</h2>
+                <a href="#contact" class="animate-fadeInUp delay-300 inline-block">
+                    <button class="bg-red-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-red-700 transition-colors duration-300 hover-lift">
+                        Contact
+                    </button>
+                </a>
+                
+                <!-- Social Links -->
+                <div class="flex gap-6 mt-16 justify-center md:justify-start animate-fadeInUp delay-400">
+                    <a href="#" class="text-white text-3xl hover:text-red-600 transition-colors">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="#" class="text-white text-3xl hover:text-red-600 transition-colors">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="#" class="text-white text-3xl hover:text-red-600 transition-colors">
+                        <i class="fab fa-behance"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="relative mt-12 md:mt-0 md:ml-8 animate-fadeInUp delay-500">
+                <img
+                    src="./Screenshot 2025-06-14 125600.png"
+                    alt="A portrait of Joshua Luis, a developer."
+                    class="w-80 h-80 md:w-[400px] md:h-[400px] object-cover rounded-full border-4 border-gray-800 shadow-lg animate-float"
+                    onerror="this.onerror=null;this.src='https://placehold.co/400x400/111827/FFFFFF?text=Joshua Luis';">
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-20 text-white">
+            <div class="max-w-4xl mx-auto text-center md:text-left">
+                <h2 class="text-4xl font-bold mb-8 text-center scroll-hidden">About Me</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                    <div class="scroll-hidden-left">
+                        <p class="text-lg leading-relaxed text-gray-300">
+                            I'm a passionate React.js Developer with a strong foundation in web development. With years of experience in building responsive and user-friendly applications, I specialize in creating efficient and scalable solutions that solve real-world problems.
+                        </p>
+                        <p class="text-lg leading-relaxed text-gray-300 mt-4">
+                            My journey in web development started with a curiosity for creating interactive user experiences, and has evolved into a deep expertise in modern frontend technologies.
+                        </p>
+                    </div>
+                    <div class="bg-gray-900 p-6 rounded-lg shadow-md hover-lift scroll-hidden-right">
+                        <h3 class="text-2xl font-bold mb-4">Quick Facts</h3>
+                        <ul class="space-y-4 text-left">
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-red-600 mr-3"></i>
+                                <span>3+ Years of Professional Experience</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-red-600 mr-3"></i>
+                                <span>20+ Projects Completed</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-red-600 mr-3"></i>
+                                <span>Remote Work Experience</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-red-600 mr-3"></i>
+                                <span>Agile Development Background</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="py-20 text-white bg-gray-900 -mx-4 md:-mx-8 px-4 md:px-8">
+            <div class="max-w-5xl mx-auto">
+                <h2 class="text-4xl font-bold mb-12 text-center scroll-hidden">Skills</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 text-center">
+                    <div class="bg-black p-6 rounded-lg shadow-lg hover:scale-105 transition-transform scroll-hidden-scale scroll-delay-100">
+                        <i class="fab fa-react text-5xl text-red-600 mb-4"></i>
+                        <h3 class="text-xl font-bold mb-2">Frontend</h3>
+                        <ul class="space-y-2 text-gray-300">
+                            <li>React.js</li>
+                            <li>JavaScript (ES6+)</li>
+                            <li>HTML5 & CSS3</li>
+                            <li>Tailwind CSS</li>
+                        </ul>
+                    </div>
+                    <div class="bg-black p-6 rounded-lg shadow-lg hover:scale-105 transition-transform scroll-hidden-scale scroll-delay-200">
+                        <i class="fas fa-server text-5xl text-red-600 mb-4"></i>
+                        <h3 class="text-xl font-bold mb-2">Backend</h3>
+                        <ul class="space-y-2 text-gray-300">
+                            <li>Node.js</li>
+                            <li>Express.js</li>
+                            <li>RESTful APIs</li>
+                            <li>MongoDB</li>
+                        </ul>
+                    </div>
+                    <div class="bg-black p-6 rounded-lg shadow-lg hover:scale-105 transition-transform scroll-hidden-scale scroll-delay-300">
+                        <i class="fas fa-tools text-5xl text-red-600 mb-4"></i>
+                        <h3 class="text-xl font-bold mb-2">Tools</h3>
+                        <ul class="space-y-2 text-gray-300">
+                            <li>Git & GitHub</li>
+                            <li>VS Code</li>
+                            <li>Webpack</li>
+                            <li>npm/yarn</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-20 text-white">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-4xl font-bold mb-12 text-center scroll-hidden">Projects</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Project 1 -->
+                    <div class="bg-gray-900 rounded-lg overflow-hidden shadow-lg transform hover:-translate-y-2 transition-transform duration-300 scroll-hidden-left">
+                        <img
+                            src="https://ucarecdn.com/05cd7c91-0c6b-4f27-9984-593c19d05500/-/preview/500x300/"
+                            alt="Screenshot of an E-Commerce Platform"
+                            class="w-full h-48 object-cover"
+                            onerror="this.onerror=null;this.src='https://placehold.co/500x300/111827/FFFFFF?text=Project+1';">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">E-Commerce Platform</h3>
+                            <p class="text-gray-300 mb-4">A full-stack e-commerce solution with React.js frontend and Node.js backend.</p>
+                            <div class="flex gap-4">
+                                <a href="#" class="text-red-600 hover:text-red-500 font-semibold"><i class="fab fa-github mr-2"></i>Code</a>
+                                <a href="#" class="text-red-600 hover:text-red-500 font-semibold"><i class="fas fa-external-link-alt mr-2"></i>Live</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Project 2 -->
+                    <div class="bg-gray-900 rounded-lg overflow-hidden shadow-lg transform hover:-translate-y-2 transition-transform duration-300 scroll-hidden-right">
+                        <img
+                            src="https://images.unsplash.com/photo-1522199755839-a2bacb67c546?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=80"
+                            alt="Screenshot of a Task Management App"
+                            class="w-full h-48 object-cover"
+                             onerror="this.onerror=null;this.src='https://placehold.co/500x300/111827/FFFFFF?text=Project+2';">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">Task Management App</h3>
+                            <p class="text-gray-300 mb-4">A React-based task management application with real-time updates and collaboration.</p>
+                            <div class="flex gap-4">
+                                <a href="#" class="text-red-600 hover:text-red-500 font-semibold"><i class="fab fa-github mr-2"></i>Code</a>
+                                <a href="#" class="text-red-600 hover:text-red-500 font-semibold"><i class="fas fa-external-link-alt mr-2"></i>Live</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 text-white bg-gray-900 -mx-4 md:-mx-8 px-4 md:px-8">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-4xl font-bold mb-12 text-center scroll-hidden">Contact Me</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <div class="scroll-hidden-left">
+                        <h3 class="text-2xl font-bold mb-4">Get in Touch</h3>
+                        <p class="text-gray-300 mb-6">I'm always open to discussing new projects, creative ideas or opportunities to be part of your visions.</p>
+                        <div class="space-y-4">
+                            <div class="flex items-center"><i class="fas fa-envelope text-red-600 mr-4 text-xl"></i><span>Joshua Luis@example.com</span></div>
+                            <div class="flex items-center"><i class="fas fa-phone text-red-600 mr-4 text-xl"></i><span>+1 234 567 890</span></div>
+                            <div class="flex items-center"><i class="fas fa-map-marker-alt text-red-600 mr-4 text-xl"></i><span>New York, USA</span></div>
+                        </div>
+                    </div>
+                    <div class="scroll-hidden-right">
+                        <form action="#" class="space-y-4">
+                            <input type="text" placeholder="Your Name" class="w-full p-3 bg-black rounded-lg text-white border-2 border-gray-700 focus:border-red-600 focus:outline-none">
+                            <input type="email" placeholder="Your Email" class="w-full p-3 bg-black rounded-lg text-white border-2 border-gray-700 focus:border-red-600 focus:outline-none">
+                            <textarea placeholder="Your Message" rows="5" class="w-full p-3 bg-black rounded-lg text-white border-2 border-gray-700 focus:border-red-600 focus:outline-none"></textarea>
+                            <button class="bg-red-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-red-700 w-full transition-colors duration-300 hover-lift animate-pulse">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Footer -->
+        <footer class="text-center py-8 text-gray-500">
+            <p>&copy; 2024 Joshua Luis. All Rights Reserved.</p>
+        </footer>
+    </div>
+    
+    <script>
+        // JavaScript to handle active navigation link on scroll
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('nav a');
+
+        const activateNav = () => {
+            let current = 'home';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (window.pageYOffset >= (sectionTop - sectionHeight / 3)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active-nav');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active-nav');
+                }
+            });
+        };
+
+        // Enhanced Scroll Animation Observer
+        const observerOptions = {
+            root: null,
+            rootMargin: '-50px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Add appropriate visible class based on the hidden class
+                    if (entry.target.classList.contains('scroll-hidden')) {
+                        entry.target.classList.add('scroll-visible');
+                    }
+                    if (entry.target.classList.contains('scroll-hidden-left')) {
+                        entry.target.classList.add('scroll-visible-left');
+                    }
+                    if (entry.target.classList.contains('scroll-hidden-right')) {
+                        entry.target.classList.add('scroll-visible-right');
+                    }
+                    if (entry.target.classList.contains('scroll-hidden-scale')) {
+                        entry.target.classList.add('scroll-visible-scale');
+                    }
+                    if (entry.target.classList.contains('scroll-hidden-rotate')) {
+                        entry.target.classList.add('scroll-visible-rotate');
+                    }
+                }
+            });
+        }, observerOptions);
+
+        // Observe all elements with scroll-hidden classes
+        document.querySelectorAll('[class*="scroll-hidden"]').forEach((el) => {
+            observer.observe(el);
+        });
+
+        // Add scroll progress indicator
+        const progressBar = document.createElement('div');
+        progressBar.className = 'fixed top-0 left-0 h-1 bg-red-600 transition-all duration-300 z-50';
+        document.body.appendChild(progressBar);
+
+        window.addEventListener('scroll', () => {
+            activateNav();
+            
+            // Update progress bar
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            progressBar.style.width = scrolled + '%';
+        });
+
+        // Initial call to set the state correctly on page load
+        activateNav();
+    </script>
+</body>
+</html>
