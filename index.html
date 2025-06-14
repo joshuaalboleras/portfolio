@@ -1,21 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Joshua Luis - React.js Developer Portfolio</title>
-    
+
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
+
     <!-- Font Awesome CDN for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" xintegrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        xintegrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
-    
+
     <style>
         /* Custom styles to match the original component and add enhancements */
         html {
@@ -32,6 +35,7 @@
                 opacity: 0;
                 transform: translateY(20px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -42,6 +46,7 @@
             from {
                 opacity: 0;
             }
+
             to {
                 opacity: 1;
             }
@@ -51,9 +56,11 @@
             0% {
                 transform: translateY(0px);
             }
+
             50% {
                 transform: translateY(-10px);
             }
+
             100% {
                 transform: translateY(0px);
             }
@@ -63,9 +70,11 @@
             0% {
                 transform: scale(1);
             }
+
             50% {
                 transform: scale(1.05);
             }
+
             100% {
                 transform: scale(1);
             }
@@ -88,7 +97,7 @@
             z-index: 0;
             animation: float 6s ease-in-out infinite;
         }
-        
+
         /* Enhanced navigation styles */
         nav a {
             position: relative;
@@ -181,11 +190,25 @@
         }
 
         /* Staggered animation delays for scroll animations */
-        .scroll-delay-100 { transition-delay: 100ms; }
-        .scroll-delay-200 { transition-delay: 200ms; }
-        .scroll-delay-300 { transition-delay: 300ms; }
-        .scroll-delay-400 { transition-delay: 400ms; }
-        .scroll-delay-500 { transition-delay: 500ms; }
+        .scroll-delay-100 {
+            transition-delay: 100ms;
+        }
+
+        .scroll-delay-200 {
+            transition-delay: 200ms;
+        }
+
+        .scroll-delay-300 {
+            transition-delay: 300ms;
+        }
+
+        .scroll-delay-400 {
+            transition-delay: 400ms;
+        }
+
+        .scroll-delay-500 {
+            transition-delay: 500ms;
+        }
 
         /* Ensure all content is above the background effect */
         .content-wrapper {
@@ -203,17 +226,32 @@
         }
 
         /* Staggered animation delays */
-        .delay-100 { animation-delay: 0.1s; }
-        .delay-200 { animation-delay: 0.2s; }
-        .delay-300 { animation-delay: 0.3s; }
-        .delay-400 { animation-delay: 0.4s; }
-        .delay-500 { animation-delay: 0.5s; }
+        .delay-100 {
+            animation-delay: 0.1s;
+        }
+
+        .delay-200 {
+            animation-delay: 0.2s;
+        }
+
+        .delay-300 {
+            animation-delay: 0.3s;
+        }
+
+        .delay-400 {
+            animation-delay: 0.4s;
+        }
+
+        .delay-500 {
+            animation-delay: 0.5s;
+        }
     </style>
 </head>
+
 <body class="bg-black text-white relative">
     <!-- Background effect div -->
     <div class="bg-effect"></div>
-    
+
     <!-- Main content wrapper -->
     <div class="content-wrapper container mx-auto p-4 md:p-8">
 
@@ -237,7 +275,8 @@
         </nav>
 
         <!-- Hero Section -->
-        <section id="home" class="flex flex-col md:flex-row items-center justify-between py-20 md:py-32 max-w-7xl mx-auto px-4">
+        <section id="home"
+            class="flex flex-col md:flex-row items-center justify-between py-20 md:py-32 max-w-7xl mx-auto px-4">
             <div class="text-center md:text-left md:max-w-2xl">
                 <h1 class="text-5xl md:text-6xl font-bold mb-4 animate-fadeInUp">Hi,</h1>
                 <h2 class="text-5xl md:text-6xl font-bold mb-4 animate-fadeInUp delay-100">
@@ -245,16 +284,18 @@
                 </h2>
                 <h2 class="text-5xl md:text-6xl font-bold mb-8 animate-fadeInUp delay-200">Web Developer</h2>
                 <a href="#contact" class="animate-fadeInUp delay-300 inline-block">
-                    <button class="bg-red-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-red-700 transition-colors duration-300 hover-lift">
+                    <button
+                        class="bg-red-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-red-700 transition-colors duration-300 hover-lift">
                         Contact
                     </button>
                     <a href="./CV_2025-06-14-021845.pdf" download class="inline-block" style="margin-left: 10px;">
-                        <button class="bg-red-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-red-700 transition-colors duration-300 hover-lift">
+                        <button
+                            class="bg-red-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-red-700 transition-colors duration-300 hover-lift">
                             Download CV
                         </button>
                     </a>
                 </a>
-                
+
                 <!-- Social Links -->
                 <div class="flex gap-6 mt-16 justify-center md:justify-start animate-fadeInUp delay-400">
                     <a href="#" class="text-white text-3xl hover:text-red-600 transition-colors">
@@ -268,11 +309,9 @@
                     </a>
                 </div>
             </div>
-            
+
             <div class="relative mt-12 md:mt-0 md:ml-8 animate-fadeInUp delay-500">
-                <img
-                    src="./Screenshot 2025-06-14 125600.png"
-                    alt="A portrait of Joshua Luis, a developer."
+                <img src="./Screenshot 2025-06-14 125600.png" alt="A portrait of Joshua Luis, a developer."
                     class="w-80 h-80 md:w-[400px] md:h-[400px] object-cover rounded-full border-4 border-gray-800 shadow-lg animate-float"
                     onerror="this.onerror=null;this.src='https://placehold.co/400x400/111827/FFFFFF?text=Joshua Luis';">
             </div>
@@ -285,10 +324,16 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                     <div class="scroll-hidden-left">
                         <p class="text-lg leading-relaxed text-gray-300">
-                            I'm a passionate React.js Developer with a strong foundation in web development. With years of experience in building responsive and user-friendly applications, I specialize in creating efficient and scalable solutions that solve real-world problems.
+                            I'm a college student at SLSU Bontoc currently focused on web development, specializing in
+                            Laravel and native PHP. I'm also a passionate React.js developer, continuously building my
+                            skills to create responsive, user-friendly applications. While still growing in the field, I
+                            enjoy solving real-world problems through clean, efficient, and scalable code. My journey in
+                            web development is driven by curiosity, continuous learning, and a commitment to mastering
+                            both backend and frontend technologies.
                         </p>
                         <p class="text-lg leading-relaxed text-gray-300 mt-4">
-                            My journey in web development started with a curiosity for creating interactive user experiences, and has evolved into a deep expertise in modern frontend technologies.
+                            My journey in web development started with a curiosity for creating interactive user
+                            experiences, and has evolved into a deep expertise in modern frontend technologies.
                         </p>
                     </div>
                     <div class="bg-gray-900 p-6 rounded-lg shadow-md hover-lift scroll-hidden-right">
@@ -296,22 +341,23 @@
                         <ul class="space-y-4 text-left">
                             <li class="flex items-center">
                                 <i class="fas fa-check-circle text-red-600 mr-3"></i>
-                                <span>3+ Years of Professional Experience</span>
+                                <span>BSIT Student at SLSU Bontoc</span>
                             </li>
                             <li class="flex items-center">
                                 <i class="fas fa-check-circle text-red-600 mr-3"></i>
-                                <span>20+ Projects Completed</span>
+                                <span>Focusing on Laravel & Native PHP</span>
                             </li>
                             <li class="flex items-center">
                                 <i class="fas fa-check-circle text-red-600 mr-3"></i>
-                                <span>Remote Work Experience</span>
+                                <span>React.js Enthusiast</span>
                             </li>
                             <li class="flex items-center">
                                 <i class="fas fa-check-circle text-red-600 mr-3"></i>
-                                <span>Agile Development Background</span>
+                                <span>Built Several Personal & Academic Projects</span>
                             </li>
                         </ul>
                     </div>
+
                 </div>
             </div>
         </section>
@@ -321,27 +367,30 @@
             <div class="max-w-5xl mx-auto">
                 <h2 class="text-4xl font-bold mb-12 text-center scroll-hidden">Skills</h2>
                 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 text-center">
-                    <div class="bg-black p-6 rounded-lg shadow-lg hover:scale-105 transition-transform scroll-hidden-scale scroll-delay-100">
+                    <div
+                        class="bg-black p-6 rounded-lg shadow-lg hover:scale-105 transition-transform scroll-hidden-scale scroll-delay-100">
                         <i class="fab fa-react text-5xl text-red-600 mb-4"></i>
                         <h3 class="text-xl font-bold mb-2">Frontend</h3>
                         <ul class="space-y-2 text-gray-300">
-                            <li>React.js</li>
+                            <li>Bootstrap 5</li>
                             <li>JavaScript (ES6+)</li>
                             <li>HTML5 & CSS3</li>
                             <li>Tailwind CSS</li>
                         </ul>
                     </div>
-                    <div class="bg-black p-6 rounded-lg shadow-lg hover:scale-105 transition-transform scroll-hidden-scale scroll-delay-200">
+                    <div
+                        class="bg-black p-6 rounded-lg shadow-lg hover:scale-105 transition-transform scroll-hidden-scale scroll-delay-200">
                         <i class="fas fa-server text-5xl text-red-600 mb-4"></i>
                         <h3 class="text-xl font-bold mb-2">Backend</h3>
                         <ul class="space-y-2 text-gray-300">
-                            <li>Node.js</li>
-                            <li>Express.js</li>
+                            <li>PHP</li>
+                            <li>LARAVEL</li>
                             <li>RESTful APIs</li>
                             <li>MongoDB</li>
                         </ul>
                     </div>
-                    <div class="bg-black p-6 rounded-lg shadow-lg hover:scale-105 transition-transform scroll-hidden-scale scroll-delay-300">
+                    <div
+                        class="bg-black p-6 rounded-lg shadow-lg hover:scale-105 transition-transform scroll-hidden-scale scroll-delay-300">
                         <i class="fas fa-tools text-5xl text-red-600 mb-4"></i>
                         <h3 class="text-xl font-bold mb-2">Tools</h3>
                         <ul class="space-y-2 text-gray-300">
@@ -361,34 +410,42 @@
                 <h2 class="text-4xl font-bold mb-12 text-center scroll-hidden">Projects</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <!-- Project 1 -->
-                    <div class="bg-gray-900 rounded-lg overflow-hidden shadow-lg transform hover:-translate-y-2 transition-transform duration-300 scroll-hidden-left">
-                        <img
-                            src="./image.png"
-                            alt="Screenshot of an E-Commerce Platform"
+                    <div
+                        class="bg-gray-900 rounded-lg overflow-hidden shadow-lg transform hover:-translate-y-2 transition-transform duration-300 scroll-hidden-left">
+                        <img src="./image.png" alt="Screenshot of an E-Commerce Platform"
                             class="w-full h-48 object-cover"
                             onerror="this.onerror=null;this.src='https://placehold.co/500x300/111827/FFFFFF?text=Project+1';">
                         <div class="p-6">
                             <h3 class="text-xl font-bold mb-2">Beach Resort Booking</h3>
                             <p class="text-gray-300 mb-4">A full-stack booking system solution with laravel</p>
                             <div class="flex gap-4">
-                                <a href="https://github.com/joshuaalboleras/resort-booking" class="text-red-600 hover:text-red-500 font-semibold"><i class="fab fa-github mr-2"></i>Code</a>
-                                <a href="#" class="text-red-600 hover:text-red-500 font-semibold"><i class="fas fa-external-link-alt mr-2"></i>Live</a>
+                                <a href="https://github.com/joshuaalboleras/resort-booking"
+                                    class="text-red-600 hover:text-red-500 font-semibold"><i
+                                        class="fab fa-github mr-2"></i>Code</a>
+                                <a href="#" class="text-red-600 hover:text-red-500 font-semibold"><i
+                                        class="fas fa-external-link-alt mr-2"></i>Live</a>
                             </div>
                         </div>
                     </div>
                     <!-- Project 2 -->
-                    <div class="bg-gray-900 rounded-lg overflow-hidden shadow-lg transform hover:-translate-y-2 transition-transform duration-300 scroll-hidden-right">
-                        <img
-                            src="./Screenshot 2025-06-14 144132.png"
-                            alt="Screenshot of a Task Management App"
+                    <div
+                        class="bg-gray-900 rounded-lg overflow-hidden shadow-lg transform hover:-translate-y-2 transition-transform duration-300 scroll-hidden-right">
+                        <img src="./Screenshot 2025-06-14 144132.png" alt="Screenshot of a Task Management App"
                             class="w-full h-48 object-cover"
-                             onerror="this.onerror=null;this.src='https://placehold.co/500x300/111827/FFFFFF?text=Project+2';">
+                            onerror="this.onerror=null;this.src='https://placehold.co/500x300/111827/FFFFFF?text=Project+2';">
                         <div class="p-6">
                             <h3 class="text-xl font-bold mb-2">Anti Bullying System</h3>
-                            <p class="text-gray-300 mb-4"> Development of an IoT-Based Real-time Monitoring System for Campus Bullying Prevention Using ESP32, LoRa, and GPS With Application," aims to develop a smart, technology-driven solution to address the growing concern of bullying in school and campus environments.  </p>
+                            <p class="text-gray-300 mb-4"> Development of an IoT-Based Real-time Monitoring System for
+                                Campus Bullying Prevention Using ESP32, LoRa, and GPS With Application," aims to develop
+                                a smart, technology-driven solution to address the growing concern of bullying in school
+                                and campus environments. </p>
                             <div class="flex gap-4">
-                                <a href="https://github.com/CisaAssociates/project2_jess-salva" class="text-red-600 hover:text-red-500 font-semibold"><i class="fab fa-github mr-2"></i>Code</a>
-                                <a href="https://project2.slsuisa.com/jess-salva/" class="text-red-600 hover:text-red-500 font-semibold"><i class="fas fa-external-link-alt mr-2"></i>Live</a>
+                                <a href="https://github.com/CisaAssociates/project2_jess-salva"
+                                    class="text-red-600 hover:text-red-500 font-semibold"><i
+                                        class="fab fa-github mr-2"></i>Code</a>
+                                <a href="https://project2.slsuisa.com/jess-salva/"
+                                    class="text-red-600 hover:text-red-500 font-semibold"><i
+                                        class="fas fa-external-link-alt mr-2"></i>Live</a>
                             </div>
                         </div>
                     </div>
@@ -403,31 +460,42 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
                     <div class="scroll-hidden-left">
                         <h3 class="text-2xl font-bold mb-4">Get in Touch</h3>
-                        <p class="text-gray-300 mb-6">I'm always open to discussing new projects, creative ideas or opportunities to be part of your visions.</p>
+                        <p class="text-gray-300 mb-6">I'm always open to discussing new projects, creative ideas or
+                            opportunities to be part of your visions.</p>
                         <div class="space-y-4">
-                            <div class="flex items-center"><i class="fas fa-envelope text-red-600 mr-4 text-xl"></i><span>Joshua Luis@example.com</span></div>
-                            <div class="flex items-center"><i class="fas fa-phone text-red-600 mr-4 text-xl"></i><span>+1 234 567 890</span></div>
-                            <div class="flex items-center"><i class="fas fa-map-marker-alt text-red-600 mr-4 text-xl"></i><span>New York, USA</span></div>
+                            <div class="flex items-center"><i
+                                    class="fas fa-envelope text-red-600 mr-4 text-xl"></i><span>Joshua
+                                    Luis@example.com</span></div>
+                            <div class="flex items-center"><i
+                                    class="fas fa-phone text-red-600 mr-4 text-xl"></i><span>+1 234 567 890</span></div>
+                            <div class="flex items-center"><i
+                                    class="fas fa-map-marker-alt text-red-600 mr-4 text-xl"></i><span>New York,
+                                    USA</span></div>
                         </div>
                     </div>
                     <div class="scroll-hidden-right">
                         <form action="#" class="space-y-4">
-                            <input type="text" placeholder="Your Name" class="w-full p-3 bg-black rounded-lg text-white border-2 border-gray-700 focus:border-red-600 focus:outline-none">
-                            <input type="email" placeholder="Your Email" class="w-full p-3 bg-black rounded-lg text-white border-2 border-gray-700 focus:border-red-600 focus:outline-none">
-                            <textarea placeholder="Your Message" rows="5" class="w-full p-3 bg-black rounded-lg text-white border-2 border-gray-700 focus:border-red-600 focus:outline-none"></textarea>
-                            <button class="bg-red-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-red-700 w-full transition-colors duration-300 hover-lift animate-pulse">Send Message</button>
+                            <input type="text" placeholder="Your Name"
+                                class="w-full p-3 bg-black rounded-lg text-white border-2 border-gray-700 focus:border-red-600 focus:outline-none">
+                            <input type="email" placeholder="Your Email"
+                                class="w-full p-3 bg-black rounded-lg text-white border-2 border-gray-700 focus:border-red-600 focus:outline-none">
+                            <textarea placeholder="Your Message" rows="5"
+                                class="w-full p-3 bg-black rounded-lg text-white border-2 border-gray-700 focus:border-red-600 focus:outline-none"></textarea>
+                            <button
+                                class="bg-red-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-red-700 w-full transition-colors duration-300 hover-lift animate-pulse">Send
+                                Message</button>
                         </form>
                     </div>
                 </div>
             </div>
         </section>
-        
+
         <!-- Footer -->
         <footer class="text-center py-8 text-gray-500">
             <p>&copy; 2024 Joshua Luis. All Rights Reserved.</p>
         </footer>
     </div>
-    
+
     <script>
         // JavaScript to handle active navigation link on scroll
         const sections = document.querySelectorAll('section[id]');
@@ -493,7 +561,7 @@
 
         window.addEventListener('scroll', () => {
             activateNav();
-            
+
             // Update progress bar
             const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
             const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
@@ -505,4 +573,5 @@
         activateNav();
     </script>
 </body>
+
 </html>
